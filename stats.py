@@ -1,7 +1,7 @@
 def number_of_words(book_text):
         word_list = book_text.split()
         word_count = len(word_list)
-        print(f"{word_count} words found in the document")
+        return word_count
 
 def amount_by_character(book_text):
         characters = {}
@@ -12,6 +12,18 @@ def amount_by_character(book_text):
             else: characters[lowercase] += 1
         return characters
         
+def sort_on(characters):
+    return characters["num"]
+
+def create_report(characters):
+    sorted_list = []
+    for character, num in characters.items():
+        if character.isalpha():
+            sorted_list.append({"char": character, "num": num})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
+  
+     
 
 
             
